@@ -1,0 +1,20 @@
+<h1 class="page-header"><%= action %></h1>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="col-lg-6">
+      <%= form_for([:backoffice, @like]) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="form-group">
+          <label>Member</label>
+          <%= f.select :member_id, @members  %>
+        </div>
+        <div class="form-group">
+          <label>Comment</label>
+          <%= f.select :comment_id, @comments %>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      <% end %>
+    </div>
+  </div>
+  <!-- /.panel-body -->
+</div>

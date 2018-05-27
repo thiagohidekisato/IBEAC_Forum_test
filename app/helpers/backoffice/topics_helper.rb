@@ -1,0 +1,2 @@
+module Backoffice::TopicsHelper
+end

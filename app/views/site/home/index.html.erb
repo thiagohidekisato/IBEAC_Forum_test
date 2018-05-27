@@ -1,0 +1,33 @@
+Admin's page:
+<%= link_to  "ADMIN", admin_path %>
+<br>
+Member:
+<% if current_member.nil? %>
+  <%= link_to  "Sign in", new_member_session_path  %>
+  or
+  <%= link_to  "Sign up", new_member_registration_path  %>
+<% else %>
+  <%= link_to  "Logout", destroy_member_session_path, method: :delete %>
+<% end %>
+<br>
+
+<% @topics.each do |topic| %>
+  <hr/>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= topic.title %>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong><%= topic.member.email %></strong>
+      </p>
+      <p>
+        <small><%= topic.kind %></small>
+        <small><%= topic.created_at %></small>
+        <small><%= topic.category.description %></small>
+      </p>
+      <p class="lead"><%= topic.text %></p>
+    </div>
+    <!-- /.panel-body -->
+  </div>
+<% end %>

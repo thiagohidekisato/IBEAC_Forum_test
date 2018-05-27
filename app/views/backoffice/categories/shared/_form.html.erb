@@ -1,0 +1,11 @@
+<h1 class="page-header"><%= action %></h1>
+<div class="col-lg-6">
+  <%= form_for([:backoffice, @category]) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group input-group">
+      <span class="input-group-addon">Category</span>
+      <%= f.text_field :description, class:"form-control" %>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+  <% end %>
+</div>

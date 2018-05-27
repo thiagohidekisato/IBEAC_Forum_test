@@ -1,0 +1,29 @@
+<h1 class="page-header">Topics</h1>
+<%= link_to "Create new topic", new_backoffice_topic_path %>
+
+
+<% @topics.each do |topic| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= topic.title %>
+      <%= link_to backoffice_topic_path(topic), class: "btn btn-danger btn-circle pull-right", method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+      <%= link_to edit_backoffice_topic_path(topic), class: "btn btn-primary btn-circle pull-right" do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong><%= topic.member.email %></strong>
+      </p>
+      <p>
+        <small><%= topic.kind %></small>
+        <small><%= topic.created_at %></small>
+        <small><%= topic.category.description %></small>
+      </p>
+      <p class="lead"><%= topic.text %></p>
+    </div>
+    <!-- /.panel-body -->
+  </div>
+<% end %>

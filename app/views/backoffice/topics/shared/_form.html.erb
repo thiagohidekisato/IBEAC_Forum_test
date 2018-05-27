@@ -1,0 +1,29 @@
+<h1 class="page-header"><%= action %></h1>
+<div class="panel-body">
+  <div class="col-lg-6">
+    <%= form_for([:backoffice, @topic]) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="form-group">
+        <label>Type</label>
+        <%= f.text_field :kind, class:"form-control", placeholder:"Type topic" %>
+      </div>
+      <div class="form-group">
+        <label>Title</label>
+        <%= f.text_field :title, class:"form-control", placeholder:"Title topic" %>
+      </div>
+      <div class="form-group">
+        <label>Text</label>
+        <%= f.text_field :text, class:"form-control", placeholder:"Title topic" %>
+      </div>
+      <div class="form-group">
+        <label>Member</label>
+        <%= f.select :member_id, @members  %>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <%= f.select :category_id, @categories  %>
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+    <% end %>
+  </div>
+</div>
